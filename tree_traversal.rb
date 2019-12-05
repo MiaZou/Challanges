@@ -14,7 +14,6 @@ class Tree
         return r if r
       end
     end
-    return nil
   end
 
   def bfs(root, needle)
@@ -23,10 +22,7 @@ class Tree
       current = queue.shift()
       return current if current.payload == needle
       if current.children.any? then
-        current.children.each do |child|
-          queue.push(child)
-          return queue
-        end
+        current.children.each { |c| queue << c }
       end
     end
     return nil
